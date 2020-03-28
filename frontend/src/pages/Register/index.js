@@ -28,11 +28,11 @@ export default function Register(){
             uf,
         };
         try{
-            const res = await api.post('http:/localhost:3333/ongs', data);
+            const res = await api.post('/ongs', data);
             alert(`Seu id de acesso: ${res.data.id}`);
             history.push('/');
         }catch(err){
-            alert('ERRO: ',err.message);
+            alert(err.message);
         }
 
     }

@@ -15,6 +15,7 @@ export default function Profile(){
     const ongName = localStorage.getItem('ongName')
 
     useEffect(() => {
+        console.log("HERE")
         api.get('profile', { 
             headers: { 
                 Authorization: ongId,
@@ -26,7 +27,7 @@ export default function Profile(){
 
     async function handleDeleteIncident(id){
         try{
-            await api.delete(`http:/localhost:3333/incidents/${id}`, {
+            await api.delete(`/incidents/${id}`, {
                 headers:{
                     Authorization: ongId,
                 }
@@ -49,7 +50,7 @@ export default function Profile(){
                 <img src={logoImg} alt="Be the Heroe"/>
                 <span>Bem vinda, {ongName}</span>
 
-                <Link className="button" to="/"> Cadastrar Novo Caso</Link>
+                <Link className="button" to="/incidents/new"> Cadastrar Novo Caso</Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041"/>
                 </button>
